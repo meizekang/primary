@@ -1,0 +1,165 @@
+body,html{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font: 14px/1.4 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+	text-rendering: geometricPrecision;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+.p-button{
+	display: inline-block;
+	margin: 0;
+	width: 100%;
+	height: 36px;
+	outline: none;
+	font-size: 14px;
+	background: #FFFFFF;
+	border: 1px solid #dcdfe6;
+	border-radius: 5px;
+	text-align: center;
+	padding: 10px 20px;
+	color: #606266;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+.p-button:hover{
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+.p-button-loading{
+	opacity: 0.8;
+}
+
+.p-button-full{
+	width: 100%;
+	border-left: none;
+	border-right: none;
+	border-radius: 0px;
+}
+
+.p-button-primary{
+	border: none;
+	color: #FFFFFF;
+	background-image: linear-gradient(to right, #2b85e4 , #5cadff);
+}
+
+.p-button-simple{
+	border: none;
+	color: #FFFFFF;
+	background-image: linear-gradient(to right, #C1C0D0 , #D3D3DF);
+}
+
+.p-button-info{
+	border: none;
+	color: #FFFFFF;
+	background-image: linear-gradient(to right, #DEBC8F , #E8D2A3);
+}
+
+.p-button-warning{
+	border: none;
+	color: #FFFFFF;
+	background-image: linear-gradient(to right, #8E2A28 , #C25250);
+}
+
+.p-input-position{
+	position: relative;
+}
+
+.p-input{
+	position: absolute;
+	display: inline-block;
+	width: 100%;
+	height: 36px;
+	outline: none;
+	border: 1px solid #dcdee2;	
+	background: #FFFFFF;
+	padding: 4px 11px;
+	line-height: 30px;
+	border-radius: 4px;
+	font-size: 14px;
+	color: #515a6e;
+}
+
+.p-input[disabled]{
+	background-color: #f3f3f3;
+	cursor: not-allowed;
+	color: #ccc;
+}
+
+.p-input:enabled:hover{
+	border:1px solid transparent;
+	background-clip:padding-box,border-box;
+	background-origin:padding-box,border-box;
+	background-image:linear-gradient(#fff,#fff),linear-gradient(45deg, #2b85e4,#5cadff);
+}
+
+.p-input:focus{
+	border:1px solid transparent;
+	background-clip:padding-box,border-box;
+	background-origin:padding-box,border-box;
+	background-image:linear-gradient(#fff,#fff),linear-gradient(45deg, #2b85e4,#5cadff);
+}
+
+.p-input-pre-icon{
+	padding-left: 36px;
+}
+
+.p-input-post-icon{
+	padding-right: 36px;
+}
+
+.pre-icon{
+	display: block; 
+	position: relative; 
+	width: 16px; 
+	height: 16px; 
+	font-size: 16px; 
+	margin-top: 6px; 
+	margin-left: 10px; 
+	color: #515a6e; 
+	float: left;
+}
+
+.post-icon{
+	display: block; 
+	position: relative; 
+	width: 16px; 
+	height: 16px; 
+	font-size: 16px; 
+	margin-top: 6px; 
+	margin-right: 10px; 
+	color: #515a6e; 
+	float: right;
+}
+
+.p-font-left{
+	margin-right: 5px;
+}
+
+.p-font-right{
+	margin-left: 5px;
+}
+
+.p-font[disabled]{
+	cursor: not-allowed;
+	color: #ccc;
+}
+
+.icon-loading{
+	animation: rotating 2s linear infinite;	
+}
+
+@keyframes rotating{
+	0%{
+		transform: rotate(0deg);
+	}
+	100%{
+		transform: rotate(1turn);
+	}
+}
