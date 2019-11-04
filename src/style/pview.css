@@ -155,6 +155,45 @@ body,html{
 	animation: rotating 2s linear infinite;	
 }
 
+.p-menu{
+	height: 100%;
+	width: 200px;
+	border-right: 1px solid #dcdee2;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.p-menu-submenu{
+	display: inline-table;
+	position: relative;
+	height: 40px;
+	width: 100%;
+	color: #515a6e;
+	padding-left: 20px;
+	padding-right: 20px;
+	font: 14px;
+	line-height: 40px;
+}
+
+.p-menu-submenu:hover{
+	color: #2b85e4;
+}
+
+.p-menu-right-icon{
+	float: right;
+	transition: transform .3s;
+	-moz-transition: -moz-transform .3s;	/* Firefox 4 */
+	-webkit-transition: -webkit-transform .3s;	/* Safari 和 Chrome */
+	-o-transition: -o-transform .3s;	/* Opera */
+}
+
+.p-menu-right-icon-rotate{
+	transform: rotate(180deg);
+	-moz-transform:rotate(180deg); 	/* Firefox */
+	-webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+	-o-transform:rotate(180deg); 	/* Opera */
+}
+
 @keyframes rotating{
 	0%{
 		transform: rotate(0deg);

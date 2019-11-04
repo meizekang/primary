@@ -1,9 +1,11 @@
 import Button from '../components/button.js'
 import Input from '../components/input.js'
+import Menu from '../components/menu.js'
 
 const components = [
 	Button,
-	Input
+	Input,
+	Menu
 ]
 
 function Repaint(doc, data, watcher){
