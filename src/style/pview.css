@@ -172,11 +172,11 @@ body,html{
 	padding-left: 20px;
 	padding-right: 20px;
 	font: 14px;
-	line-height: 40px;
 	table-layout: fixed;
 }
 
 .p-menu-submenu span:not(.p-font){
+	margin-top: 10px;
 	width: 100px;
 	display: inline-block;
 	overflow: hidden;
@@ -201,6 +201,7 @@ body,html{
 .p-menu-pading-left{
 	padding-left: 40px;
 	padding-right: 40px;
+	line-height: 40px;
 	width: 200px;
 	display: inline-block;
 	overflow: hidden;
@@ -209,6 +210,7 @@ body,html{
 }
 
 .p-menu-right-icon{
+	margin-top: 9px;
 	float: right;
 	transition: transform .3s;
 	-moz-transition: -moz-transform .3s;	/* Firefox 4 */
@@ -224,6 +226,7 @@ body,html{
 }
 
 .p-menu-left-icon{
+	margin-top: 9px;
 	float: left;
 }
 
