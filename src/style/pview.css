@@ -173,6 +173,15 @@ body,html{
 	padding-right: 20px;
 	font: 14px;
 	line-height: 40px;
+	table-layout: fixed;
+}
+
+.p-menu-submenu span:not(.p-font){
+	width: 100px;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 }
 
 .p-menu-submenu:hover{
@@ -191,6 +200,12 @@ body,html{
 
 .p-menu-pading-left{
 	padding-left: 40px;
+	padding-right: 40px;
+	width: 200px;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap; 
 }
 
 .p-menu-right-icon{
@@ -206,6 +221,10 @@ body,html{
 	-moz-transform:rotate(180deg); 	/* Firefox */
 	-webkit-transform:rotate(180deg); /* Safari 和 Chrome */
 	-o-transform:rotate(180deg); 	/* Opera */
+}
+
+.p-menu-left-icon{
+	float: left;
 }
 
 @keyframes rotating{

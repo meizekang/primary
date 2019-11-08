@@ -33,7 +33,7 @@ function getSingleMenu(m, m_click, m_choiced, menu_nodes){
 	
 	let m_icon = m.icon;
 	if(typeof m_icon !== 'undefined'){
-		let className = 'p-font p-font-left ' + m_icon;
+		let className = 'p-font p-font-left p-menu-left-icon ' + m_icon;
 		single_m.children.push(new PNode('SPAN',{class:className},""))
 	}
 	
@@ -73,7 +73,7 @@ function getMultipleMenu(m, m_click, m_choiced, menu_nodes){
 	
 	let m_icon = m.icon;
 	if(typeof m_icon !== 'undefined'){
-		let className = 'p-font p-font-left ' + m_icon;
+		let className = 'p-font p-font-left p-menu-left-icon ' + m_icon;
 		menu_title.children.push(new PNode('SPAN',{class:className},""))
 	}
 	let m_title = m.title;
