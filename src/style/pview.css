@@ -156,7 +156,7 @@ body,html{
 }
 
 .p-menu{
-	height: 100%;
+	height: inherit;
 	width: 200px;
 	border-right: 1px solid #dcdee2;
 	cursor: pointer;
@@ -177,6 +177,20 @@ body,html{
 
 .p-menu-submenu:hover{
 	color: #2b85e4;
+}
+
+.p-menu-select{
+	color: #FFFFFF;
+	background-image: linear-gradient(to right, #2d8cf0 , #5cadff);
+	opacity: 0.8;
+}
+
+.p-menu-select:hover{
+	color: #FFFFFF;
+}
+
+.p-menu-pading-left{
+	padding-left: 40px;
 }
 
 .p-menu-right-icon{

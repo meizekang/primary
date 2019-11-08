@@ -8,21 +8,27 @@ function createComponent(originalNode, data){
 	
 	let menu_click = originalNode.getAttribute("menu-click");
 	
+	let menu_choiced = originalNode.getAttribute("menu-choiced");
+	
+	let menu_nodes = {};
+	
 	let menu_data = data[originalNode.getAttribute("menu-data")];
 	if(menu_data instanceof Array){
 		menu_data.forEach(function(m){
 			if(m['sub_menu'] instanceof Array){
-				main.children.push(getMultipleMenu(m, menu_click))
+				main.children.push(getMultipleMenu(m, menu_click, menu_choiced, menu_nodes));
 			}else{
-				main.children.push(getSingleMenu(m, menu_click))
+				main.children.push(getSingleMenu(m, menu_click, menu_choiced, menu_nodes));
 			}
 		});
 	}
 	
+	console.log(menu_nodes)
+	
 	return main;
 }
 
-function getSingleMenu(m, m_click){
+function getSingleMenu(m, m_click, m_choiced, menu_nodes){
 	let single_m = new PNode('DIV',{class:'p-menu-submenu'},[]);
 	
 	let m_icon = m.icon;
@@ -38,7 +44,13 @@ function getSingleMenu(m, m_click){
 		single_m.children.push(new PNode('SPAN', {}, ""));
 	}
 	
+	if(typeof m_choiced !== 'undefined' && m_choiced == m.name){
+		single_m.props['class'] = single_m.props['class'] + " p-menu-select";
+		menu_nodes['p_record_choied_menu'] = {name:m.name, node:single_m.getNodeDocument()};
+	}
+	
 	single_m.getNodeDocument().onclick = function(){
+		choiceMenu(menu_nodes, m.name)
 		if(typeof m_click !== 'undefined'){
 			let f = window[m_click];
 			if(f instanceof Function){
@@ -49,13 +61,15 @@ function getSingleMenu(m, m_click){
 		}
 	}
 	
+	menu_nodes[m.name] = single_m.getNodeDocument();
+	
 	return single_m;
 }
 
 const NOT_EXPAND = "display: none;";
-function getMultipleMenu(m, m_click){
-	let menu_node = new PNode('DIV',{class:'p-menu-submenu'},[]);
-	let menu_title = new PNode('DIV',{},[]);
+function getMultipleMenu(m, m_click, m_choiced, menu_nodes){
+	let menu_node = new PNode('DIV',{},[]);
+	let menu_title = new PNode('DIV',{class:'p-menu-submenu'},[]);
 	
 	let m_icon = m.icon;
 	if(typeof m_icon !== 'undefined'){
@@ -105,8 +119,13 @@ function getMultipleMenu(m, m_click){
 	}
 	if(sub_menu_data instanceof Array){
 		sub_menu_data.forEach(function(s){
-			let single_sub_menu = new PNode('SPAN',{class:"p-menu-submenu"},s.title);
+			let single_sub_menu = new PNode('SPAN',{class:"p-menu-submenu p-menu-pading-left"},s.title);
+			if(typeof m_choiced !== 'undefined' && m_choiced == s.name){
+				single_sub_menu.props['class'] = single_sub_menu.props['class'] + " p-menu-select";
+				menu_nodes['p_record_choied_menu'] = {name:s.name, node:single_sub_menu.getNodeDocument()};
+			}
 			single_sub_menu.getNodeDocument().onclick = function(){
+				choiceMenu(menu_nodes, s.name);
 				if(typeof m_click !== 'undefined'){
 					let f = window[m_click];
 					if(f instanceof Function){
@@ -117,11 +136,22 @@ function getMultipleMenu(m, m_click){
 				}
 			}
 			sub_menu.children.push(single_sub_menu);
+			
+			menu_nodes[s.name] = single_sub_menu.getNodeDocument();
 		})
 	}
 	menu_node.children.push(sub_menu);
 	
 	return menu_node;
+}
+
+function choiceMenu(menu_nodes, name){
+	let choiced_menu = menu_nodes['p_record_choied_menu'];
+	if(choiced_menu.name !== name){
+		choiced_menu.node.classList.remove('p-menu-select');
+		menu_nodes[name].classList.add('p-menu-select');
+		menu_nodes['p_record_choied_menu'] = {name:name, node:menu_nodes[name]};
+	}
 }
 
 var component = {
