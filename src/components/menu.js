@@ -23,8 +23,6 @@ function createComponent(originalNode, data){
 		});
 	}
 	
-	console.log(menu_nodes)
-	
 	return main;
 }
 
