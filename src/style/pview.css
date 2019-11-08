@@ -155,19 +155,28 @@ body,html{
 	animation: rotating 2s linear infinite;	
 }
 
+.p-menu-outer-container{
+	position: relative;
+	overflow: hidden;
+	width: 183px;
+	height: inherit;
+}
+
 .p-menu{
 	height: inherit;
 	width: 200px;
 	border-right: 1px solid #dcdee2;
 	cursor: pointer;
 	font-size: 14px;
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 
 .p-menu-submenu{
 	display: inline-table;
 	position: relative;
 	height: 40px;
-	width: 100%;
+	width: inherit;
 	color: #515a6e;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -202,7 +211,7 @@ body,html{
 	padding-left: 40px;
 	padding-right: 40px;
 	line-height: 40px;
-	width: 200px;
+	width: 180px;
 	display: inline-block;
 	overflow: hidden;
 	text-overflow:ellipsis;

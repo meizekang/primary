@@ -4,6 +4,7 @@ import {joinStyle} from '../util/StringUtil.js';
 const ALIAS = 'p-menu';
 
 function createComponent(originalNode, data){
+	let menu = new PNode("DIV", {class:'p-menu-outer-container'},[]);
 	let main = new PNode("DIV",{class:'p-menu'},[]);
 	
 	let menu_click = originalNode.getAttribute("menu-click");
@@ -23,7 +24,9 @@ function createComponent(originalNode, data){
 		});
 	}
 	
-	return main;
+	menu.children.push(main);
+	
+	return menu;
 }
 
 function getSingleMenu(m, m_click, m_choiced, menu_nodes){
